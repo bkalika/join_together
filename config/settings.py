@@ -91,12 +91,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get("SQL_ENGINE", "django.db.backends.postgresql"),
-        'NAME': os.environ.get("SQL_ENGINE", "join_together"),
-        'USER': os.environ.get("SQL_ENGINE", "postgres"),
-        'PASSWORD': os.environ.get("SQL_ENGINE", "postgres"),
-        'HOST': os.environ.get("SQL_ENGINE", "localhost"),
-        'PORT': os.environ.get("SQL_ENGINE", "5432"),
+        'ENGINE': os.environ.get("POSTGRES_ENGINE", "django.db.backends.postgresql"),
+        'NAME': os.environ.get("POSTGRES_DATABASE", "join_together"),
+        'USER': os.environ.get("POSTGRES_USER", "postgres"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "postgres"),
+        'HOST': os.environ.get("POSTGRES_HOST", "localhost"),
+        'PORT': os.environ.get("POSTGRES_PORT", "5432"),
     }
 }
 

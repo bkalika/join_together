@@ -1,4 +1,4 @@
-FROM python:3.8.3
+FROM python:3.8.5
 
 WORKDIR /usr/src/app
 
@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update \
     && apt-get install netcat -y
-RUN apt-get upgrage -y && apt-get install postgresql gcc python3-dev musl-dev -y
+RUN apt-get upgrade -y && apt-get install postgresql gcc python3-dev musl-dev -y
 RUN pip install --upgrade pip
 
 COPY ./requirements.txt .
@@ -17,4 +17,4 @@ COPY ./entrypoint.sh .
 
 COPY . .
 
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+# ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
