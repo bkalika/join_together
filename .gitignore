@@ -103,8 +103,8 @@ ENV/
 
 .DS_Store
 *.sqlite3
-!*media/.gitkeep
 media/*
+!media/.gitkeep
 *.pyc
 *.db
 *.pid

@@ -1,21 +1,19 @@
-from rest_framework.generics import RetrieveAPIView, UpdateAPIView
 from rest_framework import permissions
+from rest_framework.viewsets import ModelViewSet
 
 from .models import UserNet
-from .serializers import GetUserNetSerializer
+from .serializers import GetUserNetSerializer, GetUserNetPublicSerializer
 
 
-class GetUserNetView(RetrieveAPIView):
+class UserNetPublicView(ModelViewSet):
+    """Output public user's profile"""
+    queryset = UserNet.objects.all()
+    serializer_class = GetUserNetPublicSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+class UserNetView(ModelViewSet):
     """Output user's profile"""
-
-    queryset = UserNet.objects.all()
-    serializer_class = GetUserNetSerializer
-
-
-class UpdateUserNetView(UpdateAPIView):
-    """Update the user"""
-
-    queryset = UserNet.objects.all()
     serializer_class = GetUserNetSerializer
     permission_classes = [permissions.IsAuthenticated]
 
